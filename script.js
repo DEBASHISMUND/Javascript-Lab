@@ -1,195 +1,378 @@
-function calculateArea(length, width) {
-  return length * width;
+console.log(score);
+var score = 50;
+console.log(score);
+
+console.log(city);
+var city = "haridwar";
+console.log(city);
+
+function showMessage() {
+  console.log(message);
+  var message = "hello";
+  console.log(message);
 }
-console.log(calculateArea(5, 3));
+showMessage();
 
-function isAdult(age) {
-  return age >= 18;
+var name = "global";
+function test() {
+  console.log(name);
+  var name = "local";
 }
-console.log(isAdult(16));
-console.log(isAdult(18));
-console.log(isAdult(22));
+test();
 
-function calculateDiscount(price, isMember) {
-  if (isMember) {
-    return price * 0.9;
-  }
-  return price;
-}
-console.log(calculateDiscount(1200, true));
-console.log(calculateDiscount(1200, false));
+console.log(food);
+var food = "pizza";
+console.log(food);
 
-const multiply = function(a, b) {
-  return a * b;
-};
-console.log(multiply(4, 5));
-
-const multiplyArrow = (a, b) => a * b;
-console.log(multiplyArrow(4, 5));
-
-const isAdultExpression = function(age) {
-  return age >= 18;
-};
-console.log(isAdultExpression(17));
-console.log(isAdultExpression(20));
-
-const square = n => n * n;
-console.log(square(5));
-console.log(square(8));
-console.log(square(11));
-
-const fullName = (first, last) => first + " " + last;
-console.log(fullName("Amritansh", "Gupta"));
-console.log(fullName("Aarav", "Sharma"));
-
-function greetUser(name = "Guest") {
-  console.log("Welcome, " + name);
-}
-greetUser("Aditi");
-greetUser();
-
-function calculatePrice(price, tax = 0.18) {
-  return price + (price * tax);
-}
-console.log(calculatePrice(500, 0.05));
-console.log(calculatePrice(500));
-
-console.log(calculateArea(5));
-console.log("Calling calculateArea with one argument gives NaN because width defaults to undefined and multiplying a number with undefined produces NaN.");
-
-let storeName = "QuickMart";
-function printReceipt() {
-  console.log("Thank you for shopping at " + storeName);
-}
-printReceipt();
-
-let taxRate = 0.18;
-function finalPrice(amount) {
-  return amount + (amount * taxRate);
-}
-console.log(finalPrice(1500));
-
-let cityName = "Haridwar";
-function displayCity() {
-  let cityName = "Rishikesh";
-  console.log(cityName);
-}
-displayCity();
-console.log(cityName);
-console.log("The local variable inside the function shadows the global variable with the same name.");
-console.log("The global variable did not change and still retains its original value.");
-
-if (true) {
-  let discountApplied = true;
-  console.log(discountApplied);
-}
-console.log(typeof discountApplied);
-
-if (true) {
-  let campusName = "Dev Sanskriti Vishwavidyalaya";
-  console.log(campusName);
-}
-console.log(typeof campusName);
-
-if (true) {
-  var hostelName = "Ganga Hostel";
-  console.log(hostelName);
-}
-console.log(hostelName);
-console.log("Variables declared with var are function scoped and ignore block boundaries.");
-console.log("Because of this hostelName remains accessible outside the if block.");
-
-let status = "pending";
-function checkOrder() {
-  function confirmOrder() {
-    console.log(status);
-  }
-  confirmOrder();
-}
-checkOrder();
-
-function studentProfile() {
-  let studentName = "Amritansh";
-  function showDetails() {
-    let course = "BCA";
-    console.log(studentName + " is enrolled in " + course);
-  }
-  showDetails();
-}
-studentProfile();
-
-let role = "guest";
-function loginAsAdmin() {
-  let role = "admin";
-  console.log(role);
-}
-loginAsAdmin();
-console.log(role);
-
-let totalFeeCollected = 0;
-
-function calculateGrade(marks) {
-  if (marks >= 90) {
-    return "A";
-  } else if (marks >= 75) {
-    return "B";
-  } else if (marks >= 60) {
-    return "C";
-  } else {
-    return "F";
-  }
+console.log(square(4));
+function square(n) {
+  return n * n;
 }
 
-const calculateLateFee = function(daysLate = 0) {
-  return daysLate * 10;
-};
-
-const processStudent = (name, marks, daysLate = 0) => {
-  let grade = calculateGrade(marks);
-  let fee = calculateLateFee(daysLate);
-  totalFeeCollected += fee;
-  console.log(name + " - Grade " + grade + ", Late Fee Rs." + fee + ".");
-};
-
-processStudent("Aditi", 92, 0);
-processStudent("Rohit", 68, 3);
-processStudent("Meera", 55, 5);
-processStudent("Amritansh", 88);
-console.log("Final totalFeeCollected - Rs." + totalFeeCollected);
-
-console.log("Snippet 1 Expected: 8");
-console.log("Snippet 1 Actual: undefined");
-console.log("Snippet 1 Reason: The function calculates a + b without the return statement.");
-function addNumbers(a, b) {
-  return a + b;
+try {
+  sayHi();
+  var sayHi = function () {
+    console.log("hi!");
+  };
+} catch (err) {
+  console.log("typeerror: sayhi is not a function");
 }
-console.log(addNumbers(5, 3));
 
-console.log("Snippet 2 Expected: Declare and assign a discount variable properly.");
-console.log("Snippet 2 Actual: Assigning without let or const accidentally creates an implicit global variable.");
-console.log("Snippet 2 Reason: Missing variable declaration keyword inside function.");
-function setDiscount() {
-  let discount = 20;
-  return discount;
+try {
+  sayHiConst();
+  const sayHiConst = function () {
+    console.log("hi!");
+  };
+} catch (err) {
+  console.log("referenceerror: cannot access sayhiconst before initialization");
 }
-let currentDiscount = setDiscount();
-console.log(currentDiscount);
 
-console.log("Snippet 3 Expected: 800");
-console.log("Snippet 3 Actual: 1000");
-console.log("Snippet 3 Reason: Parameter balance shadows the outer variable, modifying only the local parameter.");
-let balance = 1000;
-function withdraw(amount) {
-  balance = balance - amount;
-  return balance;
+console.log("function declaration works before its line with no error");
+console.log("var function expression gives typeerror");
+console.log("const arrow function gives referenceerror");
+console.log("let function expression gives referenceerror");
+
+console.log(fnA());
+function fnA() {
+  return "first";
 }
-withdraw(200);
-console.log(balance);
+function fnA() {
+  return "second";
+}
 
-console.log("Snippet 4 Expected: Print Hi!");
-console.log("Snippet 4 Actual: ReferenceError because sayHello is called before initialization.");
-console.log("Snippet 4 Reason: Function expressions assigned to const are not hoisted like function declarations.");
-const sayHello = function() {
-  console.log("Hi!");
-};
-sayHello();
+wakeUp();
+eatBreakfast();
+goToCollege();
+
+function wakeUp() {
+  console.log("woke up at 7 am");
+}
+function eatBreakfast() {
+  console.log("ate breakfast");
+}
+function goToCollege() {
+  console.log("went to college");
+}
+console.log("function declarations are hoisted with both name and body");
+
+try {
+  console.log(age);
+  let age = 20;
+} catch (err) {
+  console.log("referenceerror: cannot access age before initialization");
+}
+
+try {
+  console.log(pi);
+  const pi = 3.14;
+} catch (err) {
+  console.log("referenceerror: cannot access pi before initialization");
+}
+
+console.log(typeof x);
+var x = 5;
+
+try {
+  console.log(typeof y);
+  let y = 5;
+} catch (err) {
+  console.log("referenceerror: cannot access y before initialization");
+}
+
+console.log("the three mistakes when using a name too early are: undefined when using var before declaration, referenceerror when using let or const in tdz, typeerror when calling a var function expression before initialization");
+
+console.log(detectiveA);
+var detectiveA = 10;
+
+try {
+  console.log(detectiveB);
+  let detectiveB = 20;
+} catch (err) {
+  console.log("referenceerror: tdz error");
+}
+
+try {
+  detectiveC();
+  var detectiveC = function () {};
+} catch (err) {
+  console.log("typeerror: not a function");
+}
+
+detectiveD();
+function detectiveD() {
+  console.log("works perfectly due to hoisting");
+}
+
+function makeCounter() {
+  let count = 0;
+  return function () {
+    count++;
+    return count;
+  };
+}
+
+const counterA = makeCounter();
+const counterB = makeCounter();
+console.log(counterA(), counterA(), counterA());
+console.log(counterB());
+
+const cA = makeCounter();
+const cB = makeCounter();
+console.log(cA());
+console.log(cA());
+console.log(cA());
+console.log(cA());
+console.log(cA());
+console.log(cB());
+console.log(cB());
+console.log("counterb has its own independent closure scope and memory");
+
+try {
+  console.log(count);
+} catch (err) {
+  console.log("referenceerror: count is not defined");
+}
+console.log("closure variables are private and cannot be accessed outside the function");
+
+function makeMultiplier(n) {
+  return function (x) {
+    return x * n;
+  };
+}
+const double = makeMultiplier(2);
+const triple = makeMultiplier(3);
+console.log(double(5), triple(5));
+
+function makeGreeter(greeting) {
+  return function (person) {
+    return greeting + ", " + person + "!";
+  };
+}
+console.log(makeGreeter("namaste")("aditi"));
+
+function makeCupCounter() {
+  let count = 0;
+  return function () {
+    count++;
+    return "cup number " + count + " of chai";
+  };
+}
+const rahulChai = makeCupCounter();
+const priyaChai = makeCupCounter();
+console.log(rahulChai());
+console.log(rahulChai());
+console.log(priyaChai());
+console.log(rahulChai());
+console.log(priyaChai());
+
+function createWallet(start) {
+  let balance = start;
+  return {
+    add(n) {
+      balance += n;
+      return balance;
+    },
+    spend(n) {
+      if (n > balance) return "insufficient balance";
+      balance -= n;
+      return balance;
+    },
+    show() {
+      return balance;
+    }
+  };
+}
+
+const wallet = createWallet(100);
+console.log(wallet.add(50));
+console.log(wallet.spend(30));
+console.log(wallet.spend(500));
+console.log(wallet.show());
+console.log(wallet.balance);
+
+wallet.balance = 99999;
+console.log(wallet.show());
+console.log("the balance variable inside the closure remains unchanged and private");
+
+function createWalletWithReset(start) {
+  let balance = start;
+  return {
+    add(n) {
+      balance += n;
+      return balance;
+    },
+    spend(n) {
+      if (n > balance) return "insufficient balance";
+      balance -= n;
+      return balance;
+    },
+    show() {
+      return balance;
+    },
+    reset() {
+      balance = start;
+      return balance;
+    }
+  };
+}
+const walletReset = createWalletWithReset(100);
+console.log(walletReset.add(50));
+console.log(walletReset.reset());
+
+function limiter(max) {
+  let used = 0;
+  return function () {
+    if (used < max) {
+      used++;
+      return "attempt " + used + " of " + max;
+    } else {
+      return "locked!";
+    }
+  };
+}
+const tryLogin = limiter(3);
+console.log(tryLogin());
+console.log(tryLogin());
+console.log(tryLogin());
+console.log(tryLogin());
+
+function createDiary() {
+  let entries = [];
+  return {
+    write(text) {
+      entries.push(text);
+    },
+    read() {
+      return entries;
+    }
+  };
+}
+const myDiary = createDiary();
+myDiary.write("had a great coding session today");
+myDiary.write("learned closures and hoisting");
+console.log(myDiary.read());
+console.log(myDiary.entries);
+
+const withVar = [];
+for (var i = 0; i < 3; i++) {
+  withVar.push(() => i);
+}
+console.log(withVar.map(f => f()));
+
+const withLet = [];
+for (let j = 0; j < 3; j++) {
+  withLet.push(() => j);
+}
+console.log(withLet.map(f => f()));
+
+console.log("var shares a single binding across loop iterations while let creates a new binding per iteration");
+
+for (let m = 1; m <= 3; m++) {
+  console.log("let:", m);
+}
+
+const mySmartWallet = createSmartWallet(500);
+const guard = createLimiter(3);
+
+console.log(mySmartWallet.add(200));
+console.log(guard());
+console.log(mySmartWallet.spend(150));
+console.log(guard());
+console.log(mySmartWallet.spend(1000));
+console.log(mySmartWallet.show());
+console.log(mySmartWallet.history());
+
+const festive = makeDiscount(10);
+console.log(festive(500));
+console.log("final balance is " + mySmartWallet.show());
+
+function createSmartWallet(start) {
+  let balance = start;
+  let logHistory = [];
+  return {
+    add(n) {
+      balance += n;
+      logHistory.push("added " + n);
+      return balance;
+    },
+    spend(n) {
+      if (n > balance) {
+        return "insufficient balance";
+      }
+      balance -= n;
+      logHistory.push("spent " + n);
+      return balance;
+    },
+    show() {
+      return balance;
+    },
+    history() {
+      return logHistory;
+    }
+  };
+}
+
+function createLimiter(max) {
+  let used = 0;
+  return function () {
+    if (used < max) {
+      used++;
+      return "attempt " + used + " of " + max;
+    }
+    return "locked!";
+  };
+}
+
+function makeDiscount(percent) {
+  return function (amount) {
+    return amount - (amount * percent / 100);
+  };
+}
+
+var total = 5;
+console.log(total);
+
+function greet() {
+  console.log("hi");
+}
+greet();
+
+function makeCounterFixed() {
+  let c = 0;
+  return function () {
+    c++;
+    return c;
+  };
+}
+const next = makeCounterFixed();
+console.log(next(), next());
+
+function makeCounter2Fixed() {
+  let count = 0;
+  return function () {
+    count++;
+    return count;
+  };
+}
+const n = makeCounter2Fixed();
+console.log(n(), n(), n());
